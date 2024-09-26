@@ -1,5 +1,6 @@
 from Bio import SeqIO
 import Bio.Seq as BS
+import argparse
 
 def ReverseComplement(text):
 	complement=""
@@ -26,7 +27,7 @@ def gene_finder(file):
 	amino_acids = []
 
 	rev = ReverseComplement(genome)
-
+	
 	for seq in [genome,rev]:
 		for i in range(3): # run for three reading frames
 			stop = False
@@ -49,13 +50,15 @@ def gene_finder(file):
 							amino_acids.append(seq[idx1:idx2+3])
 						break
 				idx2=idx1+3
+			
+	return amino_acids
 
-	proteins = []
-	for acid in amino_acids:
-		RNA = BS.transcribe(acid)
-		protein = BS.translate(RNA)
-		if protein[:-1] not in proteins:
-			proteins.append(protein[:-1])
+if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("file",type=str)
+	args = parser.parse_args()
 
-	return proteins
 
+	result=gene_finder(file=args.file)
+	for seq in result:
+		print(seq)
