@@ -13,7 +13,7 @@ for filename in "$base_dir"/*/GCA*; do
         # Define the output file paths
         output_file="$output_dir/${base_name}_output.fna"
 
-	python gene_finder.py "$fna_file" > "$output_file"
+	python gene_finder_filter.py "$fna_file" > "$output_file"
 	echo "done"
     fi
 done
