@@ -59,6 +59,6 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 
-	result=gene_finder(file=args.file)
+	result=gene_finder(file=args.file,length=300)
 	for seq in result:
 		print(seq)
