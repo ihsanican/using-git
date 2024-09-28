@@ -18,7 +18,8 @@ This code will read FASTA file as an input and will give filtered ORF with the l
 
     ./run_filter.sh 
 
-##gene_finder_with_RBS.py
+
+## gene_finder_with_RBS.py
 This code will read FASTA file as an input and will give double-filtered ORF based on the length (more or equal to 300 bases) and contain Shine-Dalgarno sequence (AGGAGG) up to 20bp upstream of the start codon.
 
 > Command line for multiple input files (the output will automatically stored inside a new directory /RBS_output from your current directory):
